@@ -3,26 +3,19 @@ def printFlightMap(flight, row, col):
         for y in col:
             print(flight[x][y])
             print("\n")
-         
-            
-def getTotalRevenue(arr, n):
 	
+	
+def getTotalRevenue(flightSeating):
+
+	cost_matrix = [[100, 75, 50, 100] for row in range(12)]
 	totalCost = 0
-	
-	for x in arr:
-		totalCost = totalCost + x
-		print(totalCost)
-		
-		x = 0
-			while x < 3:
-			x += 1
-		
-		y = 0
-			while y < 12:
-			y += 1
-			
-		if cost_matrix == "X":
-			totalCost += 
-			
-			
-	print(total)
+
+    	for x in range(4):
+        	for y in range(12):
+				
+            		if flightSeating[y][x] == "X":
+               	
+		totalCost += cost_matrix[y][x]
+                
+    return totalCost
+
