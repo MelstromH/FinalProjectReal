@@ -33,6 +33,7 @@ def reservations():
     form = ReservationForm()
     if request.method == 'POST' :
         chart = ""
+        info = ""
         if form.validate_on_submit():
             firstName = request.form['first_name']
             string = "INFOTC4320"
@@ -42,6 +43,9 @@ def reservations():
             e_ticket_number = printETicketNumber(firstName, string)
             chart = e_ticket_number
             info = rowSeat
+            filetoWrite = open("reservation.txt", "w")
+            filetoWrite.write(firstName + " " + str(row) + " " + str(seat) + " " + str(e_ticket_number))
+            filetoWrite.close()
         return render_template("reservations.html", form=form, template="form-template", chart= chart, info = info)
 
     return render_template("reservations.html", form=form, template="form-template")
