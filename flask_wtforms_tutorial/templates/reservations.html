@@ -7,13 +7,8 @@
 {% block content %}
 <div class="formwrapper">
   <h2 class="title">Reserve Your Seat</h2>
-  {% if chart %}
-    <div id="chart">
-      Congratulations on a successful booking! Here is your confirmation number: 
-      {{ chart }}
-    </div>
-  {% endif %}
-  <form method="POST" action="/reservations">
+  
+  <form method="POST" action="/admin">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.first_name.label }} {{ form.first_name }}
         {% if form.first_name.errors %}
@@ -54,9 +49,6 @@
       
       {{ form.reserve }}
   </form>
-
-  <div class="home">
-      <a class="home" href="/">Click here to go back to Homepage</a>
-  </div>
+  <a class="home" href="/">Click here to go back to the homepage!</a>
 </div>
 {% endblock %}

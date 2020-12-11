@@ -20,17 +20,3 @@ a {
 li {
   text-align: center;
 }
-.home {
-  margin: auto;
-  text-align: center;
-  text-decoration: none;
-  color: #5eb9d7;
-  width: 50%;
-}
-.home:hover{
-  color: black;
-}
-.item {
-  width: 25%;
-  border: 0;
-}
