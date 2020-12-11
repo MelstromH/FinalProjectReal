@@ -2,6 +2,7 @@ from flask import current_app as app
 from flask import redirect, render_template, url_for, request, flash
 
 from .forms import *
+from .functions import *
 
 
 #@app.route("/", methods=['GET', 'POST'])
@@ -30,6 +31,14 @@ def admin():
 def reservations():
 
     form = ReservationForm()
+    if request.method == 'POST' :
+        chart = ""
+        if form.validate_on_submit():
+            firstName = request.form['first_name']
+            string = "INFOTC4320"
+            e_ticket_number = printETicketNumber(firstName, string)
+            chart = e_ticket_number
+        return render_template("reservations.html", form=form, template="form-template", chart= chart)
 
     return render_template("reservations.html", form=form, template="form-template")
 
