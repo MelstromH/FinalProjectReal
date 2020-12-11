@@ -30,3 +30,7 @@ li {
 .home:hover{
   color: black;
 }
+.item {
+  width: 25%;
+  border: 0;
+}
