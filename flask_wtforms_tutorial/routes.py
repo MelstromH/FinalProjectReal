@@ -36,9 +36,13 @@ def reservations():
         if form.validate_on_submit():
             firstName = request.form['first_name']
             string = "INFOTC4320"
+            row = request.form['row']
+            seat = request.form['seat']
+            rowSeat = rowandSeat(row, seat)
             e_ticket_number = printETicketNumber(firstName, string)
             chart = e_ticket_number
-        return render_template("reservations.html", form=form, template="form-template", chart= chart)
+            info = rowSeat
+        return render_template("reservations.html", form=form, template="form-template", chart= chart, info = info)
 
     return render_template("reservations.html", form=form, template="form-template")
 
