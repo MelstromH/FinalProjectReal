@@ -24,6 +24,21 @@ def user_options():
 def admin():
 
     form = AdminLoginForm()
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if checkCreds(username, password) == 1:
+            loginOK = 1
+            mapVar = populateChart()
+            totalCost = getTotalRevenue()
+            return render_template("admin.html", mapVar=mapVar, loginOK=loginOK, totalCost=totalCost, form=form, template="form-template")
+
+        else:
+            error="Invalid credientials, please try again"
+            return render_template("admin.html", form=form,error = error, template="form-template")
+        
+        
 
     return render_template("admin.html", form=form, template="form-template")
 

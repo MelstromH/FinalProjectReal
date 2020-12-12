@@ -40,6 +40,20 @@ def getTotalRevenue():
                 
     return totalCost
 
+def checkCreds(username,password):
+    file = open("passcodes.txt", "r")
+
+    for line in file:
+        data = line.split(",")
+        realUser = data[0]
+        realPass = data[0]
+        if realUser == username and realPass == password:
+            file.close()
+            return 1
+    file.close()
+    return 0
+    
+
 # def printFlightMap(flight, row, col):
 #     for x in col:
 #         for y in col:
