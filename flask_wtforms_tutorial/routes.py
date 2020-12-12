@@ -34,6 +34,7 @@ def reservations():
     if request.method == 'POST' :
         chart = ""
         info = ""
+        mapVar = ""
         if form.validate_on_submit():
             firstName = request.form['first_name']
             string = "INFOTC4320"
@@ -43,6 +44,10 @@ def reservations():
             e_ticket_number = printETicketNumber(firstName, string)
             chart = e_ticket_number
             info = rowSeat
+            # mapRow = str(row)
+            # mapSeat = str(seat)
+            # flightMap = printFlightMap( "flight", mapRow, mapSeat)
+            # mapVar = flightMap
             filetoWrite = open("reservation.txt", "w")
             filetoWrite.write(firstName + " " + str(row) + " " + str(seat) + " " + str(e_ticket_number))
             filetoWrite.close()
